@@ -1,8 +1,9 @@
 {
   "expo": {
     "name": "my-world",
+    "scheme": "skworld",
     "slug": "my-world",
-    "version": "1.0.0",
+    "version": "2023.03.01",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,16 +16,29 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bhvskiran5.myworld",
+      "buildNumber": "1"
     },
     "android": {
+      "versionCode": 1,
+      "package": "com.bhvskiran5.myworld",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
+    "androidNavigationBar": {
+      "visible": "immersive"
+    },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0cafe5a4-7c60-473b-8668-0ca633be4bf5"
+      }
+    },
+    "owner": "bhvskiran5"
   }
 }
