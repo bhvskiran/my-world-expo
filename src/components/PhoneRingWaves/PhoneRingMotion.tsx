@@ -38,6 +38,7 @@ const PhoneRingMotion: React.FC<Props> = (props: Props) => {
   const PATTERN = [100, 200, 100, 100, 100, 200, 100, 100];
 
   useEffect(() => {
+    Vibration.vibrate(PATTERN);
     const vibrateInterval = setInterval(() => {
       Vibration.vibrate(PATTERN);
     }, 2000);

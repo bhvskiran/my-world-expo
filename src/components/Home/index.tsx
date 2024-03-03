@@ -37,6 +37,16 @@ const HomePage: React.FC = (props: any) => {
           : require("../../assets/dial_pad_dark.png"),
       route: Routes.PIN_CODE,
     },
+    {
+      id: 3,
+      name: "scroll_to_index",
+      title: "Scroll to Index",
+      image:
+        theme === "dark"
+          ? require("../../assets/scroll_lr_light.png")
+          : require("../../assets/scroll_lr_dark.png"),
+      route: Routes.SCROLL_TO_INDEX,
+    },
   ];
 
   return (

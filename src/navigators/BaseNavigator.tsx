@@ -4,7 +4,7 @@ import { Routes } from "../utils/Routes";
 import HomePage from "../components/Home";
 import PhoneRingWaves from "../components/PhoneRingWaves";
 import PinCodeView from "../components/PinCodeView";
-import Splash from "../components/common/Splash";
+import ScrollToIndex from "../components/ScrollToIndex";
 
 const BaseNavigator: React.FC = () => {
   const Stack = createStackNavigator();
@@ -25,7 +25,7 @@ const BaseNavigator: React.FC = () => {
         component={PhoneRingWaves}
         options={{
           headerShown: false,
-          title: "HomeScreen",
+          title: "PhoneRingScreen",
           gestureEnabled: false,
           headerLeft: () => null,
         }}
@@ -35,7 +35,17 @@ const BaseNavigator: React.FC = () => {
         component={PinCodeView}
         options={{
           headerShown: false,
-          title: "HomeScreen",
+          title: "PinCodeScreen",
+          gestureEnabled: false,
+          headerLeft: () => null,
+        }}
+      />
+      <Stack.Screen
+        name={Routes.SCROLL_TO_INDEX}
+        component={ScrollToIndex}
+        options={{
+          headerShown: false,
+          title: "ScrollToIndexScreen",
           gestureEnabled: false,
           headerLeft: () => null,
         }}
