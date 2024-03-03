@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { View } from "react-native";
+import React, { ReactNode, useEffect } from "react";
+import { View, Vibration } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { MotiView } from "moti";
 import { Easing } from "react-native-reanimated";
@@ -34,6 +34,20 @@ const PhoneRingMotion: React.FC<Props> = (props: Props) => {
     iconColor = "#FFFFFF",
     icon = <Feather name="phone-outgoing" size={iconSize} color={iconColor} />,
   } = props;
+
+  const PATTERN = [100, 200, 100, 100, 100, 200, 100, 100];
+
+  useEffect(() => {
+    const vibrateInterval = setInterval(() => {
+      Vibration.vibrate(PATTERN);
+    }, 2000);
+
+    return () => {
+      Vibration.cancel();
+      clearInterval(vibrateInterval);
+    };
+  }, []);
+
   return (
     <View
       style={{

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PinCode from "./PinCode";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { Platform, SafeAreaView, StyleSheet } from "react-native";
 import { DARK1, LIGHT1, getBgColor } from "../../utils/MyColors";
 import Header from "../common/Header";
 import { ApplicationContext } from "../../context/AppContext";
@@ -25,5 +25,6 @@ export default PinCodeView;
 const styles = StyleSheet.create({
   mainWrapper: {
     flex: 1,
+    paddingTop: Platform.OS === "android" ? 40 : 0,
   },
 });

@@ -1,9 +1,10 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { DARK1, LIGHT1 } from "../../utils/MyColors";
 
 export const styles = StyleSheet.create({
   mainWrapper: {
     flex: 1,
+    paddingTop: Platform.OS === "android" ? 40 : 0,
   },
   navItemsWrap: {
     padding: 20,
