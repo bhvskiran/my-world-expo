@@ -5,6 +5,7 @@ import HomePage from "../components/Home";
 import PhoneRingWaves from "../components/PhoneRingWaves";
 import PinCodeView from "../components/PinCodeView";
 import ScrollToIndex from "../components/ScrollToIndex";
+import GlowLoader from "../components/GlowLoader";
 
 const BaseNavigator: React.FC = () => {
   const Stack = createStackNavigator();
@@ -46,6 +47,16 @@ const BaseNavigator: React.FC = () => {
         options={{
           headerShown: false,
           title: "ScrollToIndexScreen",
+          gestureEnabled: false,
+          headerLeft: () => null,
+        }}
+      />
+      <Stack.Screen
+        name={Routes.GLOW_LOADER}
+        component={GlowLoader}
+        options={{
+          headerShown: false,
+          title: "GlowLoader",
           gestureEnabled: false,
           headerLeft: () => null,
         }}

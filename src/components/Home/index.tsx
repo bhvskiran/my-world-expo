@@ -47,6 +47,16 @@ const HomePage: React.FC = (props: any) => {
           : require("../../assets/scroll_lr_dark.png"),
       route: Routes.SCROLL_TO_INDEX,
     },
+    {
+      id: 4,
+      name: "glow_loader",
+      title: "Glow Loader",
+      image:
+        theme === "dark"
+          ? require("../../assets/loading_light.png")
+          : require("../../assets/loading_dark.png"),
+      route: Routes.GLOW_LOADER,
+    },
   ];
 
   return (
