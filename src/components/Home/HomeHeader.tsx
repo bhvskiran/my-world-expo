@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { DARK2, LIGHT1, LIGHT2 } from "../../utils/MyColors";
-import ToggleSwitch from "toggle-switch-react-native";
+import { DARK2, LIGHT2 } from "../../utils/MyColors";
 import { ApplicationContext } from "../../context/AppContext";
 import MyLogo from "../common/MyLogo";
+import Switch from "../common/Switch";
 
 const HomeHeader: React.FC = () => {
   const { updateTheme, theme } = useContext(ApplicationContext);
@@ -11,12 +11,12 @@ const HomeHeader: React.FC = () => {
     <View style={styles.homeHeaderWrap}>
       <MyLogo />
 
-      <ToggleSwitch
-        isOn={theme === "dark"}
-        onColor={DARK2}
-        offColor={LIGHT2}
-        onToggle={(isOn) => updateTheme()}
-        size="medium"
+      <Switch
+        size={30}
+        isActive={theme === "dark"}
+        onPress={() => updateTheme()}
+        activeColor={DARK2}
+        inActiveColor={LIGHT2}
       />
     </View>
   );

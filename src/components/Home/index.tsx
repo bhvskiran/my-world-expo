@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Image,
-  Text,
-} from "react-native";
+import { View, FlatList, TouchableOpacity, Image, Text } from "react-native";
 import { styles } from "./styles";
 import { Routes } from "../../utils/Routes";
 import HomeHeader from "./HomeHeader";
 import { ApplicationContext } from "../../context/AppContext";
-import { getBgColor, getBorderColor, getColor } from "../../utils/MyColors";
+import {
+  DARK1,
+  LIGHT1,
+  getBgColor,
+  getBorderColor,
+  getColor,
+} from "../../utils/MyColors";
+import { MotiSafeAreaView } from "moti";
 
 const HomePage: React.FC = (props: any) => {
   const { navigation } = props;
@@ -60,7 +60,18 @@ const HomePage: React.FC = (props: any) => {
   ];
 
   return (
-    <SafeAreaView style={[styles.mainWrapper, getBgColor(theme)]}>
+    <MotiSafeAreaView
+      animate={{
+        backgroundColor: theme === "dark" ? DARK1 : LIGHT1,
+      }}
+      transition={{
+        type: "timing",
+        duration: 500,
+        delay: 100,
+        // repeatReverse: true,
+      }}
+      style={[styles.mainWrapper, getBgColor(theme)]}
+    >
       <HomeHeader />
       <View style={styles.navItemsWrap}>
         <FlatList
@@ -94,7 +105,7 @@ const HomePage: React.FC = (props: any) => {
           }}
         />
       </View>
-    </SafeAreaView>
+    </MotiSafeAreaView>
   );
 };
 
