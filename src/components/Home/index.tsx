@@ -5,12 +5,13 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
+  Text,
 } from "react-native";
 import { styles } from "./styles";
 import { Routes } from "../../utils/Routes";
 import HomeHeader from "./HomeHeader";
 import { ApplicationContext } from "../../context/AppContext";
-import { getBgColor, getBorderColor } from "../../utils/MyColors";
+import { getBgColor, getBorderColor, getColor } from "../../utils/MyColors";
 
 const HomePage: React.FC = (props: any) => {
   const { navigation } = props;
@@ -19,6 +20,7 @@ const HomePage: React.FC = (props: any) => {
     {
       id: 1,
       name: "phone_call",
+      title: "Phone Waves",
       image:
         theme === "dark"
           ? require("../../assets/phone_call_light.png")
@@ -28,6 +30,7 @@ const HomePage: React.FC = (props: any) => {
     {
       id: 2,
       name: "pin_code",
+      title: "Pin Code",
       image:
         theme === "dark"
           ? require("../../assets/dial_pad_light.png")
@@ -53,11 +56,19 @@ const HomePage: React.FC = (props: any) => {
                 style={[styles.navItemWrap, getBorderColor(theme)]}
                 onPress={() => navigation.navigate(item.route)}
               >
-                <Image
-                  source={item.image}
-                  resizeMode="contain"
-                  style={styles.navImage}
-                />
+                <View style={styles.navImageWrap}>
+                  <Image
+                    source={item.image}
+                    resizeMode="contain"
+                    style={styles.navImage}
+                  />
+                </View>
+                <Text
+                  style={[styles.navText, getColor(theme)]}
+                  numberOfLines={1}
+                >
+                  {item.title}
+                </Text>
               </TouchableOpacity>
             );
           }}

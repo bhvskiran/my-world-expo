@@ -21,4 +21,15 @@ export const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
+  navImageWrap: {
+    height: 55,
+    width: 75,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  navText: {
+    fontSize: 9,
+    width: 65,
+    textAlign: "center",
+  },
 });

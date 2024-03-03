@@ -5,16 +5,14 @@
     "slug": "my-world",
     "version": "2023.03.01",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/app-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash_screen.gif",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#27374D"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.bhvskiran5.myworld",
@@ -22,23 +20,20 @@
     },
     "android": {
       "versionCode": 1,
-      "package": "com.bhvskiran5.myworld",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "com.bhvskiran5.myworld"
     },
     "androidNavigationBar": {
       "visible": "immersive"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/app-icon.png"
     },
     "extra": {
       "eas": {
         "projectId": "0cafe5a4-7c60-473b-8668-0ca633be4bf5"
       }
     },
-    "owner": "bhvskiran5"
+    "owner": "bhvskiran5",
+    "plugins": ["expo-build-properties", "expo-secure-store"]
   }
 }

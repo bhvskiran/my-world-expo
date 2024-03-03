@@ -4,6 +4,7 @@ import { Routes } from "../utils/Routes";
 import HomePage from "../components/Home";
 import PhoneRingWaves from "../components/PhoneRingWaves";
 import PinCodeView from "../components/PinCodeView";
+import Splash from "../components/common/Splash";
 
 const BaseNavigator: React.FC = () => {
   const Stack = createStackNavigator();
