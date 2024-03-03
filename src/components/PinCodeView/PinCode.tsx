@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Dimensions, View } from "react-native";
 import DialPad from "./DialPad";
 import { MotiView } from "moti";
+import { DARK1 } from "../../utils/MyColors";
 
 const { width } = Dimensions.get("window");
 
@@ -34,7 +35,7 @@ const PinCode: React.FC<Props> = (props: Props) => {
     pinSpacing = 10,
     pinSize = pinMaxSize - pinSpacing * 2,
     primaryColor = "transparent",
-    secondaryColor = "#333333",
+    secondaryColor = DARK1,
     dialPadBorderWidth = 1.5,
   } = props;
 

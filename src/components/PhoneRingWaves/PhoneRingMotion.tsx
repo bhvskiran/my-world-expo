@@ -6,7 +6,7 @@ import { Easing } from "react-native-reanimated";
 
 export type Props = {
   width?: number;
-  bgCOlor?: string;
+  bgColor?: string;
   fromOpacity?: number;
   fromSacle?: number;
   toOpacity?: number;
@@ -16,12 +16,13 @@ export type Props = {
   delay?: number;
   icon?: ReactNode;
   iconSize?: number;
+  iconColor?: string;
 };
 
 const PhoneRingMotion: React.FC<Props> = (props: Props) => {
   const {
     width = 100,
-    bgCOlor = "#6E01EF",
+    bgColor = "#6E01EF",
     fromOpacity = 0.75,
     fromSacle = 1,
     toOpacity = 0,
@@ -30,7 +31,8 @@ const PhoneRingMotion: React.FC<Props> = (props: Props) => {
     duration = 2000,
     delay = 400,
     iconSize = (width / 10) * 3,
-    icon = <Feather name="phone-outgoing" size={iconSize} color="#FFFFFF" />,
+    iconColor = "#FFFFFF",
+    icon = <Feather name="phone-outgoing" size={iconSize} color={iconColor} />,
   } = props;
   return (
     <View
@@ -38,7 +40,7 @@ const PhoneRingMotion: React.FC<Props> = (props: Props) => {
         width: width,
         height: width,
         borderRadius: width / 2,
-        backgroundColor: bgCOlor,
+        backgroundColor: bgColor,
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -51,7 +53,7 @@ const PhoneRingMotion: React.FC<Props> = (props: Props) => {
               width: width,
               height: width,
               borderRadius: width / 2,
-              backgroundColor: bgCOlor,
+              backgroundColor: bgColor,
               position: "absolute",
               zIndex: -1,
             }}
