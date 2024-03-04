@@ -6,13 +6,20 @@ import { ApplicationContext } from "../../context/AppContext";
 
 type Props = {
   backHandler: () => void;
+  position?: "relative" | "absolute";
 };
 
 const Header: React.FC<Props> = (props: Props) => {
-  const { backHandler } = props;
+  const { backHandler, position = "relative" } = props;
   const { theme } = useContext(ApplicationContext);
   return (
-    <View style={[styles.headerWrap, getBgColor(theme)]}>
+    <View
+      style={[
+        styles.headerWrap,
+        getBgColor(theme),
+        position === "absolute" && styles.absoluteWrap,
+      ]}
+    >
       <TouchableOpacity style={styles.backBtn} onPress={() => backHandler()}>
         <MaterialIcons
           name="arrow-back-ios"
@@ -35,5 +42,11 @@ const styles = StyleSheet.create({
     width: 40,
     justifyContent: "center",
     alignItems: "center",
+  },
+  absoluteWrap: {
+    position: "absolute",
+    zIndex: 1,
+    backgroundColor: "transparent",
+    paddingTop: 50,
   },
 });

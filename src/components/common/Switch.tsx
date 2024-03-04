@@ -1,8 +1,9 @@
-import { MotiTransitionProp, MotiView } from "moti";
+import { MotiTransitionProp, MotiView, motify } from "moti";
 import React, { useMemo } from "react";
 import { View, Pressable } from "react-native";
 import { Easing } from "react-native-reanimated";
 import { Ionicons } from "@expo/vector-icons";
+import { DARK1 } from "../../utils/MyColors";
 
 type Props = {
   size: number;
@@ -18,6 +19,8 @@ const transition: MotiTransitionProp = {
   duration: 1000,
   easing: Easing.inOut(Easing.ease),
 };
+
+const MotifiedIonicons = motify(Ionicons)();
 
 const Switch: React.FC<Props> = (props: Props) => {
   const {
@@ -78,7 +81,7 @@ const Switch: React.FC<Props> = (props: Props) => {
           }}
         >
           {/* knob indicator */}
-          <MotiView
+          {/* <MotiView
             transition={transition}
             animate={{
               borderLeftWidth: isActive ? size * 0 : size * 0.1,
@@ -93,7 +96,36 @@ const Switch: React.FC<Props> = (props: Props) => {
               borderRadius: knobSize / 2,
               borderWidth: size * 0.1,
             }}
-          />
+          /> */}
+
+          {/* different approach */}
+          <MotiView
+            animate={{
+              height: isActive ? 0 : knobSize,
+              width: isActive ? 0 : knobSize,
+            }}
+            transition={{
+              type: "timing",
+              duration: 500,
+              delay: isActive ? 0 : 500,
+            }}
+          >
+            <Ionicons name="sunny" size={knobSize} color={DARK1} />
+          </MotiView>
+          <MotiView
+            animate={{
+              height: isActive ? knobSize : 0,
+              width: isActive ? knobSize : 0,
+            }}
+            style={{ position: "absolute" }}
+            transition={{
+              type: "timing",
+              duration: 500,
+              delay: isActive ? 500 : 0,
+            }}
+          >
+            <Ionicons name="moon" size={knobSize} color={DARK1} />
+          </MotiView>
         </MotiView>
       </View>
     </Pressable>

@@ -4,4 +4,5 @@ export const Routes = {
   PIN_CODE: "PinCode",
   SCROLL_TO_INDEX: "ScrollToIndex",
   GLOW_LOADER: "GlowLoader",
+  NATURE_GALLERY: "NatureGallery",
 };
